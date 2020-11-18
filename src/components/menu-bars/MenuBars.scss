@@ -1,0 +1,25 @@
+.MenuBars {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 2rem;
+    height: 1.7rem;
+    margin-right: 70px;
+
+    span {
+        width: 100%;
+        height: 0;
+        border-bottom: 1px solid white;
+    }
+
+    span:nth-child(2) {
+        width: 80%;
+    }
+}
+
+@media (min-width: 992px) {
+    .MenuBars {
+        width: 2.8rem;
+        height: 2.3rem;
+    }
+}

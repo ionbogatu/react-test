@@ -1,0 +1,300 @@
+.Stats {
+  .stats-inner {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100vw;
+
+    .tab-header {
+      display: flex;
+      flex-direction: row;
+      position: relative;
+      width: 100%;
+      background-color: #ffffff;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      z-index: 2;
+    }
+
+    .tab-anchor {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      width: 25%;
+      height: 170px;
+      padding: 37px 0;
+      cursor: pointer;
+
+      &:not(:first-child)::before {
+        position: absolute;
+        top: 0;
+        left: 14%;
+        content: '';
+        width: 72%;
+        height: 2px;
+        background-color: #EAEAEA;
+      }
+
+      &.active {
+        background: #F8F8F8;
+
+        &::before {
+          content: unset;
+        }
+
+        & + *::before {
+          content: unset;
+        }
+      }
+
+      .asset {
+        .asset-name {
+          text-transform: uppercase;
+          font-size: 2rem;
+          line-height: 2rem;
+          font-weight: 700;
+        }
+
+        .asset-price {
+          margin-top: 1.1rem;
+          font-size: 1.6rem;
+          color: #A5A5A5;
+          text-align: center;
+        }
+      }
+
+      .asset-growth {
+        font-size: 3.1rem;
+        font-weight: 700;
+        line-height: 2.5rem;
+        letter-spacing: -1.6px;
+
+        &.red {
+          color: #F03233;
+        }
+
+        &.green {
+          color: #5DCE37;
+        }
+      }
+    }
+
+    .tab-content {
+      position: relative;
+      width: 100%;
+      height: 540px;
+      background-color: #ffffff;
+      z-index: 1;
+
+      .asset-stats {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 3.5rem 9.7rem 0 5.2rem;
+        z-index: 10;
+
+        display: flex;
+        justify-content: space-between;
+
+        .current-price {
+          font-family: 'Montserrat', sans-serif;
+
+          .symbol {
+            min-width: 324px;
+            font-size: 3rem;
+            text-transform: uppercase;
+            font-weight: 700;
+          }
+
+          .bid {
+            font-size: 8.5rem;
+            line-height: 8rem;
+          }
+
+          .date {
+            margin-left: -2px;
+            margin-top: 16px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #BFBFBF;
+          }
+        }
+
+        .day-stats-wrapper {
+          display: flex;
+          flex-direction: column;
+
+          .day-stats {
+            display: grid;
+            grid-template-columns: 5.1rem 9.2rem 9.1rem 11.9rem;
+            grid-template-rows: repeat(3, 2.5rem);
+            margin-left: 0;
+            font-size: 1.1rem;
+            font-weight: 700;
+
+            .name {
+              color: #B5B5B5;
+            }
+          }
+
+          .graphic-type-wrapper {
+            display: flex;
+            margin-left: auto;
+
+            .graphic-type {
+              text-transform: uppercase;
+              font-size: 1.4rem;
+              font-weight: 700;
+              border: 2px solid #EBEBEB;
+              color: #EBEBEB;
+              border-radius: 25px;
+              padding: 6px 19px;
+              margin-top: 45px;
+
+              span {
+                font-size: 1.1rem;
+                margin-left: 1.3rem;
+                color: #000;
+              }
+            }
+          }
+        }
+      }
+
+      svg {
+        position: relative;
+      }
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .Stats {
+    .stats-inner {
+      flex-direction: row;
+
+      .tab-header {
+        flex-direction: column;
+        width: 25%;
+      }
+
+      .tab-anchor {
+        width: 100%;
+        padding: 20px 70px;
+
+        .asset {
+          .asset-name {
+            font-size: 3rem;
+            line-height: 3rem;
+          }
+
+          .asset-price {
+            margin-top: 1.4rem;
+            font-size: 2.2rem;
+            text-align: left;
+          }
+        }
+
+        .asset-growth {
+          font-size: 3.6rem;
+          line-height: inherit;
+          letter-spacing: inherit;
+        }
+      }
+
+      .tab-content {
+        width: 75%;
+        height: auto;
+
+        .asset-stats {
+          padding: 5rem 2rem 0 7.2rem;
+
+          .current-price {
+            .symbol {
+              min-width: unset;
+              font-size: 4.1rem;
+            }
+
+            .bid {
+              font-size: 11.5rem;
+              line-height: 12rem;
+            }
+
+            .date {
+              margin-left: -4px;
+              margin-top: 18px;
+              font-size: 1.5rem;
+            }
+          }
+
+          .day-stats-wrapper {
+            .day-stats {
+              grid-template-columns: 7.1rem 16.5rem 13.2rem 10rem;
+              grid-template-rows: repeat(3, 3.5rem);
+              margin-left: 20px;
+              font-size: 1.8rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1700px) {
+  .Stats {
+    .stats-inner {
+      .tab-header {
+        padding: 0;
+      }
+
+      .tab-anchor {
+        flex-direction: row;
+      }
+
+      .tab-content {
+        .asset-stats {
+          position: absolute;
+
+          .day-stats-wrapper {
+            flex-direction: row;
+
+            .graphic-type-wrapper {
+              display: initial;
+              margin-left: 117px;
+
+              .graphic-type {
+                font-size: 2rem;
+                padding: 8px 28px;
+                margin-top: 4px;
+
+                span {
+                  font-size: 1.6rem;
+                  margin-left: 1.3rem;
+                }
+              }
+            }
+          }
+        }
+
+        svg {
+          position: absolute;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1800px) {
+  .Stats {
+    .stats-inner {
+      .tab-content {
+        .asset-stats {
+          padding: 5rem 16.3rem 0 7.2rem;
+        }
+      }
+    }
+  }
+}

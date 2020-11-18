@@ -1,0 +1,48 @@
+@import "font-awesome";
+
+html {
+  font-size: 62.5%;
+  font-family: Montserrat, sans-serif;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  padding: 16px;
+  width: 100%;
+  border-radius: 36px;
+  color: white;
+  background-color: transparent;
+  border: 2px solid #ffffff55;
+  box-shadow: none;
+  outline: unset;
+  font-weight: 700;
+  font-size: 1.3rem;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    background-color: #ffffff55;
+  }
+
+  &:active {
+    outline: none;
+    background-color: #ffffff99;
+  }
+}
+
+@media (min-width: 576px) {
+  .button {
+    padding: 17px;
+  }
+}
+
+@media (min-width: 992px) {
+  .button {
+    padding: 20px;
+    font-size: 1.9rem;
+  }
+}
